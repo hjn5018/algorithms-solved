@@ -1,4 +1,4 @@
-select animal_id, name
+SELECT animal_id, name
 from animal_ins
-where intake_condition <> 'aged'
-order by animal_id
+where name like '%el%' and animal_type = 'dog'
+order by name
