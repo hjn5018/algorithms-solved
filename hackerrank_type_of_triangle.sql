@@ -1,0 +1,91 @@
+-- select case
+-- -- when A = B = C then 'Equilateral'
+-- when (A = B) and (B = C) and (C = A) then 'Equilateral'
+-- -- ERROR 1054 (42S22) at line 1: Unknown column 'Equilateral' in 'field list'
+-- -- when (A = B and A = C) or (B = A and B = C) or (C = A and C = B) then 'Isosceles'
+-- when (A = B and A = C and B != C) or (B = A and B = C and A != C) or (C = A and C = B and A != B) then 'Isosceles'
+-- when (A != B and B != C and C != A) then 'Scalene'
+-- when (A + B < C) and (B + C < A) and (C + A < B) then 'Not A Triangle' end 'cases'
+-- -- check the manual that corresponds to your MySQL server version for the right syntax to use near 'Triangle end case
+
+-- from TRIANGLES
+-- ===============================================
+-- select case
+-- when (A + B < C) and (B + C < A) and (C + A < B) then 'Not A Triangle'
+-- when (A != B and B != C and C != A) then 'Scalene'
+-- when (A = B) and (B = C) and (C = A) then 'Equilateral'
+-- when (A = B and A = C and B != C) or (B = A and B = C and A != C) or (C = A and C = B and A != B) then 'Isosceles' end 'cases'
+-- from TRIANGLES
+-- Equilateral
+-- Equilateral
+-- NULL
+-- Equilateral
+-- NULL
+-- ==========================================================
+-- select case
+-- when (A + B < C) or (B + C < A) or (C + A < B) then 'Not A Triangle'
+-- when (A != B and B != C and C != A) then 'Scalene'
+-- when (A = B) and (B = C) and (C = A) then 'Equilateral'
+-- when (A = B and B != C) or (B = A and A != C) or (C = A and A != B) then 'Isosceles' end 'cases'
+-- from TRIANGLES
+-- Equilateral
+-- Equilateral
+-- Isosceles
+-- Equilateral
+-- Isosceles
+-- Equilateral
+-- Scalene
+-- Isosceles
+-- Scalene
+-- Scalene
+-- Scalene
+-- Not A Triangle
+-- Not A Triangle
+-- Scalene
+-- Equilateral
+-- =============================================
+-- select case
+-- when (A + B < C) or (B + C < A) or (C + A < B) then 'Not A Triangle'
+-- when (A != B and B != C and C != A) then 'Scalene'
+-- when (A = B) and (B = C) and (C = A) then 'Equilateral'
+-- when (A = B and B != C) or (B = A and A != C) or (C = A and A != B) then 'Isosceles' end 'cases',
+-- A, B, C
+-- from TRIANGLES
+-- Equilateral 10 10 10
+-- Equilateral 11 11 11
+-- Isosceles 30 32 30
+-- Equilateral 40 40 40
+-- Isosceles 20 20 21
+-- Equilateral 21 21 21
+-- Scalene 20 22 21
+-- Isosceles 20 20 40
+-- Scalene 20 22 21
+-- Scalene 30 32 41
+-- Scalene 50 22 51
+-- Not A Triangle 20 12 61
+-- Not A Triangle 20 22 50
+-- Scalene 50 52 51
+-- Equilateral 80 80 80
+-- ================================================
+-- select case
+-- when (A + B < C) or (B + C < A) or (C + A < B) then 'Not A Triangle'
+-- when (A != B and B != C and C != A) then 'Scalene'
+-- when (A = B) and (B = C) and (C = A) then 'Equilateral'
+-- when (A = B and B != C) or (B = A and A != C) or (C = A and A != B) then 'Isosceles' end
+-- from TRIANGLES
+-- Wrong Answer
+-- ===============================================
+select case
+when (A + B <= C) or (B + C <= A) or (C + A <= B) then 'Not A Triangle'
+when (A != B and B != C and C != A) then 'Scalene'
+when (A = B) and (B = C) then 'Equilateral'
+when A = B or B = A or C = A then 'Isosceles' end 'case'
+from TRIANGLES
+-- -- ==============================
+-- select case
+-- when (A != B and B != C and C != A) then 'Scalene'
+-- when (A = B) and (B = C) then 'Equilateral'
+-- when A = B or B = A or C = A then 'Isosceles'
+-- when (A + B <= C) or (B + C <= A) or (C + A <= B) then 'Not A Triangle' end 'case'
+-- from TRIANGLES
+-- -- Wrong Anser
