@@ -1,0 +1,5 @@
+select CITY.NAME
+from CITY
+left join COUNTRY
+on CITY.COUNTRYCODE = COUNTRY.CODE
+where COUNTRY.CONTINENT = 'Africa'
