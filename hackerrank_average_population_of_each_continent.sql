@@ -52,20 +52,25 @@
 -- South America 147435
 -- Africa 274439
 
-select c.continent, round(avg(a.population))
-from
-(
-select *
-from city
-where city.countrycode is not null
-) a
-left join
-(
-select *
-from country
-where continent is not null
-) c
-on city.countrycode = c.code
-group by c.continent
+-- select c.continent, round(avg(a.population))
+-- from
+-- (
+-- select *
+-- from city
+-- where city.countrycode is not null
+-- ) a
+-- left join
+-- (
+-- select *
+-- from country
+-- where continent is not null
+-- ) c
+-- on city.countrycode = c.code
+-- group by c.continent
 
-아직 못 품
+-- 아직 못 품
+select country.continent, floor(avg(city.population))
+from country
+inner join city
+on city.countrycode = country.code
+group by 1
