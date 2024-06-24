@@ -1,0 +1,9 @@
+def solution(my_string, letter):
+    while True:
+        position = my_string.find(letter)
+        if position < 0:
+            break
+        else:
+            my_string = my_string[:position] + my_string[position+1:]
+    return my_string
+// https://school.programmers.co.kr/learn/courses/30/lessons/120826
