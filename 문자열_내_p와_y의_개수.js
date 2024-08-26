@@ -15,4 +15,4 @@ function solution(s){
         return false
     }
 }
-# https://school.programmers.co.kr/learn/courses/30/lessons/12916?language=javascript
+// https://school.programmers.co.kr/learn/courses/30/lessons/12916?language=javascript
