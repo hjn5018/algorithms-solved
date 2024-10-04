@@ -1,0 +1,16 @@
+N = int(input())
+
+log = [input() for _ in range(N)]
+
+list_ = []
+count = 0
+set_ = set()
+for i in log:
+    if i == 'ENTER':
+        count += len(set_)
+        set_ = set()
+    else:
+        set_.add(i)
+count += len(set_)
+print(count)
+# https://www.acmicpc.net/problem/25192
