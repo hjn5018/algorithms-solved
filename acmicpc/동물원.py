@@ -12,3 +12,4 @@ for n in range(3, N + 1):
 print(dp[N])
 
 # https://www.acmicpc.net/problem/1309
+# https://my-coding-notes.tistory.com/264
